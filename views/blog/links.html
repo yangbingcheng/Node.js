@@ -1,0 +1,14 @@
+<div id="main" class="container page">
+  <div class="content">
+    <article class="post block">
+      <h1 class="title">友情链接</h1>
+      <div class="entry">
+      	<ul>
+      	  <% links.forEach(function(link) { %>
+          <li><a href="<%= link.url %>" target="_blank"><%= link.name %></a>  <span><%= link.description %></span></li>
+          <% }); %>
+        </ul>
+      </div>
+    </article>
+  </div>
+</div>

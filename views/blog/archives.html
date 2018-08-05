@@ -1,0 +1,20 @@
+<div id="main" class="container page">
+  <div class="content">
+    <article class="post block">
+      <h1 class="title">文章存档</h1>
+      <div class="entry archives">
+        <% archivesList.forEach(function(archives) { %>
+        <h2><%= archives.year %></h2>
+          <ul>
+            <% archives.archives.forEach(function(post) { %>
+            <li>
+              <time datetime="<%= post.created %>"><%= locals.moment(post.created).format('MM-DD') %></time>
+                <a href="/post/<%= post.slug %>"><%= post.title %></a>
+            </li>
+            <% }); %>
+          </ul>
+        <% }); %>
+      </div>
+    </article>
+  </div>
+</div>

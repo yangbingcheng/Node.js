@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <% include ../common/title.html %>
+  <% include ../common/stylesheets.html %>
+  <% include ../common/javascripts.html %>
+</head>
+<body>
+<div id="wrapper">
+  <div id="nav">
+    <ul>
+      <li><a href="/admin/home">Home</a><span> ›</span></li>
+      <li><a href="/admin/pages">Page Index</a></li>
+    </ul>
+    <div class="quick"><a href="/admin/page/write" title="Write Post"><span>Write</span></a></div>
+  </div>
+  <div id="post-list">
+    <ul>
+      <% pages.forEach(function(page) { %>
+      <li>
+        <a href='/admin/page/edit/<%= page.slug %>'><%= page.title %></a>
+        <div class='action'>
+              <span class='edit'>
+                <a href='/<%= page.slug %>' target='_blank'>view</a>
+              </span>
+        </div>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+  <div class='clearfix'></div>
+</div>
+</body>
+</html>

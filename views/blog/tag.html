@@ -1,0 +1,15 @@
+<section id="main" class="container tags">
+  <div class="content">
+    <section class="block">
+      <h1 class="title">标签：<%= tag %></h1>
+      <article>
+        <% posts.forEach(function(post) { %>
+        <h2>
+          <time><%= locals.moment(post.created).format('YYYY-MM-DD') %></time>
+          <a href="/post/<%= post.slug %>"><%= post.title %></a>
+        </h2>
+        <% }); %>
+      </article>
+    </section>
+  </div>
+</section>

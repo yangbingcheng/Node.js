@@ -1,0 +1,53 @@
+<section id="main" class="container">
+  <div class="content">
+    <section class="posts">
+      <% posts.forEach(function(post) { %>
+      <article class="post block">
+        <h2 class="title">
+          <a href="/post/<%= post.slug %>"><%= post.title %></a>
+        </h2>
+        <div class="meta">
+          <time datetime="<%= post.created %>"><%= locals.moment(post.created).format("YYYY-MM-DD") %></time>
+        </div>
+        <% if ('' === post.briefContent) { %>
+        <div class="entry"><%- locals.marked(post.content) %></div>
+        <% } else { %>
+        <div class="entry">
+          <!-- Brief -->
+          <%- post.briefContent %>
+          <!-- More -->
+          <div class="ReadMore"><a href="/post/<%= post.slug %>">[阅读更多]</a></div>
+        </div>
+        <% } %>
+      </article>
+      <% }) %>
+      <div class="navigation block">
+        <table width='100%'>
+          <tbody>
+            <tr>
+              <td width='120' align='left'>
+                <% if (0 !== previousPage) { %>
+                <div class="alignright">
+                  <a href="/p/<%= previousPage %>">上一页</a>
+                </div>
+                <% } %>
+              </td>
+              <td width='auto' align='center'>
+                <strong class="fade">
+                  <%= currentPage %>/<%= maxPage %>
+                </strong>
+              </td>
+              <td width='120' align='right'>
+                <% if (0 !== nextPage) { %>
+                <div class="alignright">
+                  <a href="/p/<%= nextPage %>">下一页</a>
+                </div>
+                <% } %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</section>
